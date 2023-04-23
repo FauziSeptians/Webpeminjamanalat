@@ -1,0 +1,325 @@
+/* parent */
+.navbar-kotak{
+    display: flex;
+    justify-content: space-between;
+}
+
+.kotak-nav{
+    background-color: #009879;
+}
+
+body{
+    font-family: 'poppins';
+}
+
+.navbar{
+    background-color: #009879;
+}
+
+
+
+
+.wrapper{
+    background-color: whitesmoke;
+    /* background-image: linear-gradient(#6DA9E4 , #F6BA6F); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    width: 100%;
+    height: 893px;
+}
+
+.judul h1{
+    font-size: 24px;
+}
+
+.form-label{
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.barang-dipinjam{
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.judul-peminjaman{
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.judul-peminjaman{
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+
+
+/* data */
+
+.juduldata{
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.juduldata-history{
+    font-weight: 500;
+    letter-spacing: 3px;
+    font-size: 40px;
+}
+
+.change{
+    text-decoration: none;
+    color: black;
+}
+
+.change:hover{
+    color: #009879;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.overlay-upadate{
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(222, 222, 222 , 0.7);
+}
+
+.konten-update{
+    position: absolute;
+    background-color: #009879;
+    padding: 35px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+
+
+}
+
+.konten-update .button-submit{
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+}
+
+.konten-update .button-delete{
+    background-color: whitesmoke;
+    border: none;
+    color: red;
+}
+
+.posisi-button{
+    display: flex;
+    justify-content: center;
+}
+
+#exits{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 20px;
+}
+
+.button-exits{
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+
+
+
+
+/* PICK */
+.isi-konten{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    height: 200px;
+    box-shadow: 1px 3px 6px grey;
+    border-radius: 20px;    
+}
+
+
+.kotak-konten-pick{
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    height: 80%;
+}
+
+.kotak-isian{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.row-konten{
+    height: 50%;
+}
+
+.judul{
+    padding: 10px;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 40px;
+}
+
+.konten-pick{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 82%;
+}
+
+
+/* login form */
+
+.kotak-form{
+    height: 50%;
+}
+
+.content-user{
+    background-color: azure;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    height: 100%;
+}
+
+/* .login-form-user{
+    display: none;
+} */
+
+.image-user img{
+    width: 300px;
+    height: 300px;
+}
+
+.login-form-user{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+.image-user{
+   margin-top: 20px;
+   margin-bottom: 25px;
+}
+
+.content-admin{
+    background-color: #009879;
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-form-admin{
+    display: none;
+    padding: 100px;
+}
+
+.image-admin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-admin img{
+    width: 300px;
+    height: 300px;
+}
+
+
+
+.content-admin:hover .image-admin{
+    display: none;
+}
+
+.content-admin:hover .login-form-admin{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.judul-forms-ap{
+    color: #009879;
+    font-size:35px;
+    letter-spacing: 2px;
+}
+
+.animate__animated.animate__bounce {
+    --animate-duration: 100s;
+  }
+
+
+.form-group{
+    text-align: start;
+    margin-top: 10px;
+    margin-bottom: 17px;
+}
+
+.button-admin{
+    margin-top: 10px;
+    background-color: whitesmoke;
+    width: 100%;
+}
+
+.judul-forms{
+    font-size:35px;
+    letter-spacing: 2px;
+}
+
+.buton-user{
+    background-color: #009879;
+    color: whitesmoke;
+}
+
+.juduldata-user{
+    font-size: 30px;
+}
+
+.nav-link a{
+    color: whitesmoke !important;
+}
+
+
+.kotak{
+    background-color: #009879;
+}
+
+
+
+
+
+
+
+
+
+
+
+
