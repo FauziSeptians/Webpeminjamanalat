@@ -23,7 +23,7 @@
     <nav class="navbar navbar-expand-lg navbar-light kotak-nav">
         <div class="container-fluid navbar-kotak ml-5">
             <div class="logo">
-                <a class="navbar-brand" href="{{url('pick')}}">PPTI 11</a>
+                <a class="navbar-brand" href="{{url('/')}}">PPTI 11</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#home"
                     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
