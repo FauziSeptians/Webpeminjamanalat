@@ -31,7 +31,7 @@
         </thead>
         <tbody>
             @foreach ($datapeminjam as $item)
-            <tr>
+            <tr id="data-user" value={{$datapeminjam}}>
                 <td>{{$item->namapeminjam}}</td>
                 <td>{{$item->barangdipinjam}}</td>
                 <td>{{date("d F",strtotime($item->tanggalpinjam))}}</td>

@@ -35,3 +35,8 @@ function nama(){
 function barang(){
     return barang;
 }
+
+function changecolortime(){
+    let data = document.querySelector('#data-user').value
+    console.log(data)
+}

@@ -32,4 +32,6 @@ Route::get('/data/update/{nama}/{barang}/{tanggal}/{waktuawal}/{waktuakhir}',[Da
 // Route::get('/update/{nama}/{tanggal}/{waktuawal}/{waktuakhir}',[DataPeminjamanController::class,'update']);
 Route::get('/update/{id}',[DataPeminjamanController::class,'update']);
 
+Route::get('/webhook',[DataPeminjamanController::class,'webhook']);
+
 

@@ -6,6 +6,10 @@ use App\Models\data_peminjaman;
 use Illuminate\Http\Request;
 use Nette\Utils\DateTime;
 
+use LINE\LINEBot;
+use LINE\LINEBot\MessageBuilder\TextMessageBuilder;
+use LINE\LINEBot\HTTPClient\CurlHTTPClient;
+
 class DataPeminjamanController extends Controller
 {
 
@@ -127,6 +131,34 @@ class DataPeminjamanController extends Controller
                 'waktuawalpinjam' => $request->waktuawalpinjam,
                 'waktuakhirpinjam'=> $request->waktuakhirpinjam,
             ]);
+
+
+            // Konfigurasi channel access token dan channel secret
+            $channelAccessToken = '1qy6q+g8HKKVjobaBYl9qjWA8WI/wDYQ868lnnkM7afjWeJMGLlZNyrRg+bPIjUJt+TZFPTXRHe2uV+srgIWRWlQj7OldBJjna60VdCXn4c8xDMw0RHt0YMDm2cua6XfhDdro4GNe66mGQDUvvUx5wdB04t89/1O/w1cDnyilFU=';
+            $channelSecret = '52fe6cbf20585d8f63fa12d175dec751';
+            
+            // Inisialisasi bot
+            $httpClient = new CurlHTTPClient($channelAccessToken);
+            $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
+            
+            // ID pengguna yang akan dikirimi pesan
+            $userId = '@645nxvwn';
+            
+            // Buat pesan teks
+            $textMessage = new TextMessageBuilder('Ini adalah pesan teks yang dikirim melalui Line API');
+            
+            // Kirim pesan teks ke pengguna
+            $response = $bot->pushMessage($userId, $textMessage);
+            
+            // Cek apakah pesan berhasil dikirim atau tidak
+            if ($response->isSucceeded()) {
+                return 'Pesan telah dikirim';
+            } else {
+                return 'Pesan gagal dikirim';
+            }
+
+
+
             return redirect('/data');
         }else{
             // foreach ($datadb as $key) {
@@ -263,10 +295,11 @@ class DataPeminjamanController extends Controller
     
 
         }else if($request->delete == "1"){
-            // dd($request->all());
-            $datadelete = data_peminjaman::where('namapeminjam','=',$request->namapeminjam)->where('barangdipinjam','=',$request->barangdipinjam)->first();
+
+            // $datadelete = data_peminjaman::where('namapeminjam','=',$request->namapeminjam)->where('barangdipinjam','=',$request->barangdipinjam)->first();
             // dd($datadelete);
-            $datadelete->destroy($datadelete->id);
+            $datadelete =  data_peminjaman::find($id);
+            $datadelete->delete($datadelete);
    
    
 
@@ -279,6 +312,45 @@ class DataPeminjamanController extends Controller
 
         return redirect('/data');
         
+    }
+
+    public function webhook(){
+
+        // Ambil data dari webhook
+        $json_string = file_get_contents('php://input');
+        $json_object = json_decode($json_string);
+
+        // Ambil data pengguna dan pesan
+        $userId = $json_object->events[0]->source->userId;
+        $message_text = $json_object->events[0]->message->text;
+
+        // Siapkan balasan
+        $reply_message = "Terima kasih telah mengirim pesan: " . $message_text;
+
+        // Siapkan data untuk dikirim ke Line Messaging API
+        $data = [
+            "replyToken" => $json_object->events[0]->replyToken,
+            "messages" => [
+                [
+                    "type" => "text",
+                    "text" => $reply_message
+                ]
+            ]
+        ];
+
+        // Kirim balasan ke Line Messaging API
+        $ch = curl_init("https://api.line.me/v2/bot/message/reply");
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . '1qy6q+g8HKKVjobaBYl9qjWA8WI/wDYQ868lnnkM7afjWeJMGLlZNyrRg+bPIjUJt+TZFPTXRHe2uV+srgIWRWlQj7OldBJjna60VdCXn4c8xDMw0RHt0YMDm2cua6XfhDdro4GNe66mGQDUvvUx5wdB04t89/1O/w1cDnyilFU='
+        ]);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
     }
 
 
