@@ -133,32 +133,6 @@ class DataPeminjamanController extends Controller
             ]);
 
 
-            // Konfigurasi channel access token dan channel secret
-            $channelAccessToken = '1qy6q+g8HKKVjobaBYl9qjWA8WI/wDYQ868lnnkM7afjWeJMGLlZNyrRg+bPIjUJt+TZFPTXRHe2uV+srgIWRWlQj7OldBJjna60VdCXn4c8xDMw0RHt0YMDm2cua6XfhDdro4GNe66mGQDUvvUx5wdB04t89/1O/w1cDnyilFU=';
-            $channelSecret = '52fe6cbf20585d8f63fa12d175dec751';
-            
-            // Inisialisasi bot
-            $httpClient = new CurlHTTPClient($channelAccessToken);
-            $bot = new LINEBot($httpClient, ['channelSecret' => $channelSecret]);
-            
-            // ID pengguna yang akan dikirimi pesan
-            $userId = '@645nxvwn';
-            
-            // Buat pesan teks
-            $textMessage = new TextMessageBuilder('Ini adalah pesan teks yang dikirim melalui Line API');
-            
-            // Kirim pesan teks ke pengguna
-            $response = $bot->pushMessage($userId, $textMessage);
-            
-            // Cek apakah pesan berhasil dikirim atau tidak
-            if ($response->isSucceeded()) {
-                return 'Pesan telah dikirim';
-            } else {
-                return 'Pesan gagal dikirim';
-            }
-
-
-
             return redirect('/data');
         }else{
             // foreach ($datadb as $key) {

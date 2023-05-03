@@ -1,5 +1,6 @@
 <?php
 
+use App\Console\Commands\SendWhatsappMessages;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DataPeminjamanController;
 
@@ -33,5 +34,7 @@ Route::get('/data/update/{nama}/{barang}/{tanggal}/{waktuawal}/{waktuakhir}',[Da
 Route::get('/update/{id}',[DataPeminjamanController::class,'update']);
 
 Route::get('/webhook',[DataPeminjamanController::class,'webhook']);
+
+route::get('/autosend',[SendWhatsappMessages::class,'handle']);
 
 
