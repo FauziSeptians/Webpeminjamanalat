@@ -9,6 +9,8 @@ use Nette\Utils\DateTime;
 use Twilio\Rest\Client;
 use App\Models\data_peminjaman;
 
+require 'autoload.php';
+
 class SendWhatsappMessages extends Command
 {
     protected $signature = 'send:whatsapp-messages';
@@ -40,7 +42,7 @@ class SendWhatsappMessages extends Command
                 if($jam == 1){
                     // Twilio account SID and auth token
                     $sid = 'ACab827cf905cc8965f02840b5447e8639';
-                    $token = 'fa20a4ad78dbc2c25c2de3c91d0a131b';
+                    $token = '7ff480e191d4e00148300872a87113ca';
                     $client = new Client($sid, $token);
 
                     // WhatsApp Sandbox sender number
