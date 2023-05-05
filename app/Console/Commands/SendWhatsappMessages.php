@@ -9,7 +9,6 @@ use Nette\Utils\DateTime;
 use Twilio\Rest\Client;
 use App\Models\data_peminjaman;
 
-require 'autoload.php';
 
 class SendWhatsappMessages extends Command
 {
